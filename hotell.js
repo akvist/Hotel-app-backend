@@ -97,14 +97,14 @@ function elevator(elevator, goTo, res) {
 
 
 //ENDPOINTS
-app.get('/api/elevatorstatus', (req, res) => {
+app.get('/api/elevator_status', (req, res) => {
     elevatorGetData().then(function(result) {
     res.json({"elevatorStatus":result});
 }); });
 
 
 
-router.get('/api/callelevatorto/:goTo', (req, res) => {
+router.get('/api/call_elevator_to/:goTo', (req, res) => {
     const interval1ID = setInterval(elevatorCheck, 1000); 
     function stopElevatorCheck() {clearInterval(interval1ID);} 
 

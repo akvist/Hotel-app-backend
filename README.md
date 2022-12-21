@@ -81,13 +81,13 @@ Demo video on youtube: https://www.youtube.com/watch?v=VU5xx1ZXCaE
 #### Get elevator status
 
 ```http
-  GET /api/elevatorstatus
+  GET /api/elevator_status
 ```
 
 #### Call elevator to specific floor
 
 ```http
-  GET /api/callelevatorto/:goTo
+  GET /api/call_elevator_to/:goTo
 ```
 
 | Parameter | Type     | Description                                            |
