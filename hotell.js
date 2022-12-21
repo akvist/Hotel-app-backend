@@ -28,7 +28,7 @@ async function elevatorGetData() {
 }
  
 async function getStatusByName(client, nameOfElevator) {
-    const result = await client.db("Hotell").collection("Elevators and their status").findOne({ Elevator: nameOfElevator });
+    const result = await client.db("elevators").collection("details").findOne({ Elevator: nameOfElevator });
     if(result) {
         if (nameOfElevator == 1) { return [result.Floor, result.Status]; }
         else if (nameOfElevator == 2) { return [result.Floor, result.Status]; }
@@ -37,8 +37,8 @@ async function getStatusByName(client, nameOfElevator) {
 }
  
 async function updateStatusByName(client, nameOfElevator, updatedStatus) {
-    await client.db("Hotell").collection("Elevators and their status").updateOne({ Elevator: nameOfElevator }, { $set: updatedStatus });
-    await client.db("Hotell").collection("Elevators and their status").updateOne({ Status: nameOfElevator }, { $set: updatedStatus });
+    await client.db("elevators").collection("details").updateOne({ Elevator: nameOfElevator }, { $set: updatedStatus });
+    await client.db("elevators").collection("details").updateOne({ Status: nameOfElevator }, { $set: updatedStatus });
 } 
 
  

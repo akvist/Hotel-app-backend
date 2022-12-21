@@ -108,8 +108,8 @@ To run this project, you will need to add the following environmental variables 
 
 `PORT`, the port that will be used. If no port is specified in .env, a port specified in hotell.js will be used.
 
-`DB_URI`, the uri to the MongoDB-database. The database should be called "Hotell" and should include a collection
-called "Elevators and their status". When inserting documents in the database, three documents should be
+`DB_URI`, the uri to the MongoDB-database. The database should be called "elevators" and should include a collection
+called "details". When inserting documents in the database, three documents should be
 inserted for each elevator with three fields each after the id-field. The added fields should be:
 "Elevator: x", "Floor: 1" and "Status: "Elevator is standing still"". x should be 1 for the first elevator,
 2 for the second and 3 for the third. The floor can be 1 or any other number between 1-10. This will be the
