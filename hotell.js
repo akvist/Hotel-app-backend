@@ -97,7 +97,7 @@ function elevator(elevator, goTo, res) {
 
 
 //ENDPOINTS
-app.get('/api/elevator_status', (req, res) => {
+app.get('/api/elevators_status', (req, res) => {
     elevatorGetData().then(function(result) {
     res.json({"elevatorStatus":result});
 }); });
