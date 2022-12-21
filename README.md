@@ -1,6 +1,6 @@
 # Hotell app, back-end
 
-This is the back-end of an app created with Node.js, express and MongoDB.
+This is the back-end of an app created with Node.js, Express and MongoDB.
 The front-end can be found at: https://github.com/akvist/Hotel-app-frontend.git
 
 Deployment: https://coruscating-ganache-ede5f1.netlify.app
@@ -21,7 +21,7 @@ Deployment: https://coruscating-ganache-ede5f1.netlify.app
 ## Introduction
 
 This is a back-end for a full-stack project. The application was made to learn the whole process of developing an app,
-from writing both back-and front-end code with Node.js and React.js to using services as git, databases, and deployment services.
+from writing both back-and front-end code with Node.js and React.js to using git, databases, and hosting services.
 
 The application is a simulation of the functionality of three elevators in a hotell with ten floors.
 
@@ -33,10 +33,10 @@ these ten floors when the buttons are pushed.
 
 The starting point of the elevators is that they are standing still. When pushing a button,
 the closest elevator will leave it's location and move towards the chosen floor with a pace
-of 2 seconds per floor and stop when it has arrived. If a botton is pushed while one or more elevators
+of 2 seconds per floor and stop when it has arrived. If a button is pushed while one or more elevators
 are moving, the closest free elevator will be called to the chosen floor. All three elevators
 can move at the same time. If a button is pushed while all three elevators are moving, the
-elevators will still finish with their current paths. The elevattor that arrives first to its
+elevators will still finish with their current paths. The elevator that arrives first to its
 destination will after its arrival start again and move to the chosen floor. If a button is pushed and an elevator already is at the chosen floor, nothing will happen.
 
 ## Deployment
@@ -62,7 +62,7 @@ Demo video on youtube: https://www.youtube.com/watch?v=VU5xx1ZXCaE
 - Using timers
   - Writing functions that depend on the time, the elevators move with a pace of 2sec per floor
   - Checking the value of a variable every second. When it becomes a specific value, a function is called. A timer starts when an elevator button is pushed. The elevator function will not start until one of the three elevators are standing still.
-- Using environmental variables
+- Using environment variables
 - Managing the local scope, global scope and block scope of JavaScript
   - Using variables inside functions that will be assigned different values depending on when and where the function was called
 - The logic that checks whether an elevator is free, and if it's free it sends the elevator that is closest (inside the function evelatorCheck())
