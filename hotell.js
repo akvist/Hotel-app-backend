@@ -43,12 +43,12 @@ async function updateStatusByName(client, nameOfElevator, updatedStatus) {
 
  
 //ELEVATORS
-function elevator(elevator, goTo, res) {
+function elevator(elevator, floor, res) {
     elevatorGetData().then(function(result) {
         let elevatorFloor = result[elevator-11]; let i = elevatorFloor-1; let elevatorStatus = result[elevator-7];
 
-        if (goTo == elevatorFloor) {res.json(100);}
-        else if (Math.abs(goTo-elevatorFloor)<2) {res.json(100);}
+        if (floor == elevatorFloor) {res.json(100);}
+        else if (Math.abs(floor-elevatorFloor)<2) {res.json(100);}
         else {res.json(elevator-10);}
 
 
@@ -56,17 +56,17 @@ function elevator(elevator, goTo, res) {
         const intervalID = setInterval(whichFloor, 2000);
         function whichFloor()
         {
-            if (goTo>elevatorFloor) { 
+            if (floor>elevatorFloor) { 
                 i++;
                 elevatorFloor = floorNr[i]; elevatorStatus = `Elevator is running`;
                 elevatorUpdateData(elevator).catch(console.error);
-                if (goTo == elevatorFloor) { stopE(res); }
+                if (floor == elevatorFloor) { stopE(res); }
             }
-            else if (goTo<elevatorFloor) { 
+            else if (floor<elevatorFloor) { 
                 i--;   
                 elevatorFloor = floorNr[i]; elevatorStatus = `Elevator is running`; 
                 elevatorUpdateData(elevator).catch(console.error);
-                if (goTo == elevatorFloor) { stopE(res); } 
+                if (floor == elevatorFloor) { stopE(res); } 
             }
             return elevatorStatus;
         }
@@ -104,13 +104,13 @@ app.get('/api/elevators_status', (req, res) => {
 
 
 
-router.get('/api/call_elevator_to/:goTo', (req, res) => {
+router.get('/api/call_elevator_to/:floor', (req, res) => {
     const interval1ID = setInterval(elevatorCheck, 1000); 
     function stopElevatorCheck() {clearInterval(interval1ID);} 
 
     function elevatorCheck() {
         elevatorGetData().then(function(result) {
-            const goTo = req.params.goTo;
+            const floor = req.params.floor;
             let elevator1FloorNr = result[0]; let elevator2FloorNr = result[1]; let elevator3FloorNr = result[2];
             let elevator1Status = result[3]; let elevator2Status = result[4]; let elevator3Status = result[5];
             let eCheck = ['', '', ''];
@@ -122,12 +122,12 @@ router.get('/api/call_elevator_to/:goTo', (req, res) => {
             if (elevator3Status == "Elevator is standing still") {eCheck[2] = [elevator3FloorNr];}
             else {eCheck[2] = [100];}
 
-            let closest = eCheck.reduce(function(prev, curr) { return (Math.abs(curr - goTo) < Math.abs(prev - goTo) ? curr : prev); });
+            let closest = eCheck.reduce(function(prev, curr) { return (Math.abs(curr - floor) < Math.abs(prev - floor) ? curr : prev); });
             const index = eCheck.findIndex((elev) => elev === closest);
 
-            if (index+1 == 1 && elevator1Status == "Elevator is standing still") {elevator(11, goTo, res); stopElevatorCheck();}
-            else if (index+1 == 2 && elevator2Status == "Elevator is standing still") {elevator(12, goTo, res); stopElevatorCheck();} 
-            else if (index+1 == 3 && elevator3Status == "Elevator is standing still") {elevator(13, goTo, res); stopElevatorCheck();} 
+            if (index+1 == 1 && elevator1Status == "Elevator is standing still") {elevator(11, floor, res); stopElevatorCheck();}
+            else if (index+1 == 2 && elevator2Status == "Elevator is standing still") {elevator(12, floor, res); stopElevatorCheck();} 
+            else if (index+1 == 3 && elevator3Status == "Elevator is standing still") {elevator(13, floor, res); stopElevatorCheck();} 
             
         });
     };

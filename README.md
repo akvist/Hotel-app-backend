@@ -87,12 +87,12 @@ Demo video on youtube: https://www.youtube.com/watch?v=VU5xx1ZXCaE
 #### Call elevator to specific floor
 
 ```http
-  GET /api/call_elevator_to/:goTo
+  GET /api/call_elevator_to/:floor
 ```
 
 | Parameter | Type     | Description                                            |
 | :-------- | :------- | :----------------------------------------------------- |
-| `goTo`    | `number` | The floor that the elevator should go to. Value: 1-10. |
+| `floor`   | `number` | The floor that the elevator should go to. Value: 1-10. |
 
 #### elevatorCheck()
 
