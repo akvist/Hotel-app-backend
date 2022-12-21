@@ -51,26 +51,22 @@ Demo video on youtube: https://www.youtube.com/watch?v=VU5xx1ZXCaE
 
 **Lessons learned and highlights of this code**:
 
-- Managing a NoSQL MongoDB-database
-  - Getting data from the database and updating data in the database
+- Managing a NoSQL MongoDB-database by getting data from the database and updating data in the database
 - Creating RESTful API:s with express
 - Managing git and GitHub
-- Writing DRY code
-  - By using variable url parameters so that the GET-request for calling an elevator to a specific floor can be used for all ten floors
-  - By using one function, elevator(), for all three elevators
+- Writing DRY code by using variable url parameters so that the GET-request for calling an elevator to a specific floor can be used for all ten floors
+- Writing DRY code by using one function, elevator(), for all three elevators
 - Managing the asynchronous aspect in JavaScript
-- Using timers
-  - Writing functions that depend on the time, the elevators move with a pace of 2sec per floor
-  - Checking the value of a variable every second. When it becomes a specific value, a function is called. A timer starts when an elevator button is pushed. The elevator function will not start until one of the three elevators are standing still.
+- Using timers: writing functions that depend on the time, the elevators move with a pace of 2sec per floor
+- Using timers: checking the value of a variable every second. When it becomes a specific value, a function is called. A timer starts when an elevator button is pushed. The elevator function will not start until one of the three elevators are standing still.
 - Using environment variables
-- Managing the local scope, global scope and block scope of JavaScript
-  - Using variables inside functions that will be assigned different values depending on when and where the function was called
+- Managing the local scope, global scope and block scope of JavaScript: using variables inside functions that will be assigned different values depending on when and where the function was called
 - The logic that checks whether an elevator is free, and if it's free it sends the elevator that is closest (inside the function evelatorCheck())
 - The logic that moves the elevators and updates their status (inside the functions whichFloor() and elevatorUpdateData())
 
 **Together with front-end code**:
 
-- Making a full-stack application
+- Making and deploying a full-stack application
 
 ## Tech Stack
 
