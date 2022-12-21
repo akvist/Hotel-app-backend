@@ -23,13 +23,10 @@ Deployment: https://coruscating-ganache-ede5f1.netlify.app
 This is a back-end for a full-stack project. The application was made to learn the whole process of developing an app,
 from writing both back-and front-end code with Node.js and React.js to using git, databases, and hosting services.
 
-The application is a simulation of the functionality of three elevators in a hotell with ten floors.
+The application is a simulation of the functionality of three elevators in a hotell with ten floors. It consists of ten buttons, one for each floor, and the three elevators that move between
+these ten floors when the buttons are pushed.
 
 ## Scope of Functionalities
-
-The project is a simulation of a hotell with ten floors and three elevators.
-It consists of ten buttons, one for each floor, and the three elevators that move between
-these ten floors when the buttons are pushed.
 
 The starting point of the elevators is that they are standing still. When pushing a button,
 the closest elevator will leave it's location and move towards the chosen floor with a pace
@@ -98,7 +95,7 @@ Demo video on youtube: https://www.youtube.com/watch?v=VU5xx1ZXCaE
 
 The logic that checks whether an elevator is free, and if it's free it sends the elevator that is closest.
 
-#### elevator(elevator, goTo, res)
+#### elevator(elevator, floor, res)
 
 The logic that takes one elevator and calls it to a specifified floor.
 
