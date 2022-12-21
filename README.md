@@ -78,7 +78,7 @@ Demo video on youtube: https://www.youtube.com/watch?v=VU5xx1ZXCaE
 
 ## API Reference
 
-#### Get elevator status
+#### Get elevator status for all three elevators
 
 ```http
   GET /api/elevator_status
