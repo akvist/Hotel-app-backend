@@ -81,6 +81,8 @@ Demo video on youtube: https://www.youtube.com/watch?v=VU5xx1ZXCaE
   GET /api/elevator_status
 ```
 
+**Response:** This GET-request will return the status of each elevator: which floor it is at and if it is moving or standing still.
+
 #### Call elevator to specific floor
 
 ```http
@@ -90,6 +92,8 @@ Demo video on youtube: https://www.youtube.com/watch?v=VU5xx1ZXCaE
 | Parameter | Type     | Description                                            |
 | :-------- | :------- | :----------------------------------------------------- |
 | `floor`   | `number` | The floor that the elevator should go to. Value: 1-10. |
+
+**Response:** This GET-request will call the closest elevator that is standing still to the chosen floor. It will check if an elevator is free and which elevator is closest to the chosen floor. Then the function elevator(elevator, floor, res) will be called when an elevator is free, where `elevator` is the closest elevator and `floor` is the chosen floor.
 
 #### elevatorCheck()
 
